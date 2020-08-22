@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startActivity"
+    android:orientation="vertical"
+    android:background="@drawable/wallpaper">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shift House"
+        android:textSize="45dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="#8bd8bd"/>
+
+    <ImageView
+        android:id="@+id/login_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/taxi_white"
+        android:transitionName="logo_image" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#8bd8bd"
+        android:textSize="60dp"
+        android:text="WELCOME"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/UserLogin"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ronded_button1"
+        android:text="User Log IN"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#000000" />
+    <Button
+        android:id="@+id/AdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ronded_button1"
+        android:text="Admin Log IN"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#000000" />
+
+
+
+    
+</LinearLayout>

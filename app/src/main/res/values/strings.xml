@@ -9,4 +9,15 @@
 
     <string name="emptyText">--/--</string>
     <string name="title_activity_maps">Map</string>
+    <string-array name="emp_category">
+        <item>driver</item>
+        <item>electrician</item>
+        <item>plumber</item>
+        <item>painter</item>
+    </string-array>
+    <string-array name="vehicle_category">
+        <item>pickup van</item>
+        <item>cargo</item>
+	<item>truck</item>
+    </string-array>
 </resources>

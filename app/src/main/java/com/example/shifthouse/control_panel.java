@@ -41,7 +41,7 @@ public class control_panel extends AppCompatActivity implements View.OnClickList
             startActivity(i);
         }
         if(view == msgCheckBtn){
-            Intent i= new Intent(control_panel.this, messages.class);
+            Intent i= new Intent(control_panel.this, activity_message.class);
             startActivity(i);
         }
     }
