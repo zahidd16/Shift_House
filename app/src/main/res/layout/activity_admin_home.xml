@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/admin_background"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="45dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:textColor="#fff"
+        android:layout_marginBottom="20dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextAdminUser"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_view"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:textColor="#8bd8bd"
+        android:textColorHint="#dff2fa" />
+
+    <EditText
+        android:id="@+id/editTextAdminPassword"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_view"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:textColor="#8bd8bd"
+        android:textColorHint="#dff2fa" />
+
+    <Button
+        android:id="@+id/buttonAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/admin_login_btn_background"
+        android:text="login"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:textColor="#ffff"
+        />
+
+</LinearLayout>

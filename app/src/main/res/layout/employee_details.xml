@@ -1,0 +1,80 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0079D6"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Id"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Contact"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Address"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Salary"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Category"
+            android:textColor="#fff" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        >
+
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="210dp"
+            android:background="#0079D6"
+            android:text="go back"
+            android:id="@+id/BackBtn"
+            android:textColor="#fff" />
+
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:background="#0079D6"
+            android:text="delete"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+
+</LinearLayout>

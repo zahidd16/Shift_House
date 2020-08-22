@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0079D6"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Vehicle Id"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Description"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="image"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="category"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        >
+
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="210dp"
+            android:background="#0079D6"
+            android:text="go back"
+            android:id="@+id/BackBt"
+            android:textColor="#fff" />
+
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:background="#0079D6"
+            android:text="delete"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+
+</LinearLayout>
