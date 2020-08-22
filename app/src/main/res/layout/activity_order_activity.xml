@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".order_activity"
+    android:background="@drawable/ground">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order"
+        android:layout_centerHorizontal="true"
+        android:textSize="60dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="280dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Painter          "
+            android:paddingLeft="20dp">
+
+        </TextView>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/paint"
+            ></ImageView>
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/plus"
+            android:id="@+id/painta"
+
+            />
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:background="@drawable/minus"
+            android:id="@+id/paintm"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:background="#cfd8dc"
+            android:textSize="20dp"
+            android:id="@+id/painter"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="130dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Electrician "
+            android:paddingLeft="20dp">
+
+        </TextView>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/fan"
+            ></ImageView>
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/plus"
+            android:id="@+id/ela"
+
+            />
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:background="@drawable/minus"
+            android:id="@+id/elm"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="#cfd8dc"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:id="@+id/el"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="200dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Plumber        "
+            android:paddingLeft="20dp">
+
+        </TextView>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:src="@drawable/wrench"
+            android:layout_marginLeft="5dp"
+            ></ImageView>
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/plus"
+            android:id="@+id/pa"
+
+            />
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:background="@drawable/minus"
+            android:id="@+id/pm"
+            android:layout_marginLeft="20dp"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="#cfd8dc"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:id="@+id/pl"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_marginTop="352dp"
+        android:id="@+id/date"
+        android:textSize="20dp"
+        android:layout_width="180dp"
+        android:layout_marginLeft="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:inputType="none"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Select Date"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        android:id="@+id/dateview"/>
+
+
+    <Button
+        android:layout_marginTop="550dp"
+        android:id="@+id/finish"
+        android:layout_marginEnd="48dp"
+        android:elevation="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Finish"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:text="Service cost: "
+        android:id="@+id/ext"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:text="Vehicle cost: "
+        android:id="@+id/previous"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:text="Total cost: "
+        android:id="@+id/tot"
+        />
+
+
+
+    </RelativeLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "682361491728",
+    "firebase_url": "https://shift-house-269ae.firebaseio.com",
+    "project_id": "shift-house-269ae",
+    "storage_bucket": "shift-house-269ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682361491728:android:d8dbddd749a91c3cb49595",
+        "android_client_info": {
+          "package_name": "com.example.shifthouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682361491728-61u7glchtr17ktb2pcsh2g758l4krd3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shifthouse",
+            "certificate_hash": "1672dfbe1ede04b295ec5723f2f28810a348c4e8"
+          }
+        },
+        {
+          "client_id": "682361491728-j5ji97ecc5o7st5p4v1bqk7ugk923jh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUKEihKqCICE7Kr7P4q2kn4CkfxxM3_eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682361491728-j5ji97ecc5o7st5p4v1bqk7ugk923jh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

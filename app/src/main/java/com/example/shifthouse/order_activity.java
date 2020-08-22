@@ -1,0 +1,121 @@
+package com.example.shifthouse;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+public class order_activity extends AppCompatActivity implements View.OnClickListener{
+
+    EditText datep;
+    Button elecA,elecM,paintA,paintM,plumA,plumM;
+    TextView paint,elec,plum,service,total,vehicle;
+    int extraCost=0,nE=0,nPl=0,nPt=0;
+    double vehicleCost,totalCost;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order_activity);
+        Intent i=getIntent();
+        String s=i.getStringExtra("vehicleCost");
+        vehicleCost=Double.parseDouble(s);
+        datep = findViewById(R.id.date);
+        datep.setInputType(InputType.TYPE_NULL);
+        datep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateDialog(datep);
+            }
+        });
+        elecA=findViewById(R.id.ela);
+        elecM=findViewById(R.id.elm);
+        paintA=findViewById(R.id.painta);
+        paintM=findViewById(R.id.paintm);
+        plumA=findViewById(R.id.pa);
+        plumM=findViewById(R.id.pm);
+
+        paint=findViewById(R.id.painter);
+        elec=findViewById(R.id.el);
+        plum=findViewById(R.id.pl);
+        elecA.setOnClickListener(this);
+        elecM.setOnClickListener(this);
+        paintA.setOnClickListener(this);
+        paintM.setOnClickListener(this);
+        plumA.setOnClickListener(this);
+        plumM.setOnClickListener(this);
+
+        service=findViewById(R.id.ext);
+        vehicle=findViewById(R.id.previous);
+        total=findViewById(R.id.tot);
+
+        vehicle.setText("Vehicle Cost: "+vehicleCost);
+
+    }
+    private void showDateDialog(final EditText datep)
+    {
+        final Calendar calendar=Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR,year);
+                calendar.set(Calendar.MONTH,month);
+                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+                datep.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        new DatePickerDialog(order_activity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH)
+        ,calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(v==elecA) {
+            nE++;
+            elec.setText(nE+"");
+        }
+        if(v==elecM && nE>0) {
+            nE--;
+            elec.setText(nE+"");
+        }
+        if(v==paintA) {
+            nPt++;
+            paint.setText(nPt+"");
+        }
+        if(v==paintM && nPt>0) {
+            nPt--;
+            paint.setText(nPt+"");
+
+        }
+        if(v==plumA) {
+            nPl++;
+            plum.setText(nPl+"");
+        }
+        if(v==plumM && nPl>0) {
+            nPl--;
+            plum.setText(nPl+"");
+        }
+
+        extraCost=(nE*1200+nPt*1000+nPl*900);
+        service.setText("Service cost: "+extraCost);
+        totalCost=extraCost+vehicleCost;
+        total.setText("Total Cost:"+"   "+totalCost);
+
+
+
+    }
+}
