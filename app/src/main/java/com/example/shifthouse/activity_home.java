@@ -26,14 +26,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.*;
-
-import com.google.android.gms.common.api.Status;
-import com.google.android.libraries.places.*;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.Autocomplete;
-import com.google.android.libraries.places.widget.AutocompleteActivity;
-import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;

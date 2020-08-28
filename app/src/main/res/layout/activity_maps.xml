@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MapsActivity">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
-        tools:context=".MapsActivity" />
+        android:layout_height="520dp"
+        mapbox:mapbox_cameraZoom="12"
 
-    <Button
+
+
+
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_location_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_search_category_default" />
+
+    <TextView
+        android:id="@+id/d"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginTop="520dp"
+        android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:onClick="confirm"
+        />
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="550dp"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
         android:text="Confirm"
-        android:textSize="30dp"
-        android:id="@+id/c"
+        android:id="@+id/confirm"
+        android:onClick="confirmed"
+        />
 
-
-        ></Button>
-
-
-</LinearLayout>
-
-
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
