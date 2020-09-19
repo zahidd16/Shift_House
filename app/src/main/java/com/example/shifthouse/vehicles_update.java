@@ -1,24 +1,39 @@
 package com.example.shifthouse;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
 
 import java.util.Calendar;
 
@@ -105,17 +120,17 @@ public class vehicles_update extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view == updt) {
             vehiclesUpdate();
-            Intent i =new Intent(vehicles_update.this, vehicles_details.class);
+            Intent i =new Intent(vehicles_update.this,vehicles_details.class);
             startActivity(i);
         }
         if(view==Back)
         {
-            Intent i =new Intent(vehicles_update.this, control_panel.class);
+            Intent i =new Intent(vehicles_update.this,control_panel.class);
             startActivity(i);
         }
         if(view==details)
         {
-            Intent i =new Intent(vehicles_update.this, vehicles_details.class);
+            Intent i =new Intent(vehicles_update.this,vehicles_details.class);
             startActivity(i);
         }
     }

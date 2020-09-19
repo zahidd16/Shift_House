@@ -111,12 +111,12 @@ public class activity_register extends AppCompatActivity implements View.OnClick
                     assert firebaseUser != null;
                     String userid = firebaseUser.getUid();
 
-                    customer cus = new customer(nam,userid,email,mob,ad,n,password);
+                    User user = new User(nam,userid,email,mob,ad,n,password);
 
 
                   DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
-                    databaseReference.child(userid).setValue(cus);
+                    databaseReference.child(userid).setValue(user);
 
                     firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

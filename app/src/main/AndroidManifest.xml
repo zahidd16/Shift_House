@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.shifthouse">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -18,17 +19,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".order_activity"></activity>
+        <activity android:name=".assignPeopleAndVehicle"></activity>
+        <activity android:name=".order_activity" />
         <activity android:name=".HelpFragment" />
-        <activity android:name=".activity_aboutus"/>
-        <activity android:name=".activity_message"/>
-        <activity android:name=".employee_management"/>
-        <activity android:name=".employee_details"/>
-        <activity android:name=".vehicles_update"/>
-        <activity android:name=".vehicles_details"/>
-        <activity android:name=".admin_home"/>
-        <activity android:name=".control_panel"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".activity_aboutus" />
+        <activity android:name=".activity_message" />
+        <activity android:name=".employee_management" />
+        <activity android:name=".employee_details" />
+        <activity android:name=".vehicles_update" />
+        <activity android:name=".vehicles_details" />
+        <activity android:name=".admin_home" />
+        <activity android:name=".control_panel" />
+        <activity android:name=".UserChatOrder" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".showOrderActivity" />
+        <activity android:name=".AdminChatOrders" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -1,17 +1,18 @@
 package com.example.shifthouse;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +33,7 @@ public class employee_details extends AppCompatActivity {
         listView = findViewById(R.id.listId);
 
         ArrayList<String>list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, list);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item,R.id.label, list);
         listView.setAdapter(adapter);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("employees");
@@ -81,7 +82,7 @@ public class employee_details extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(employee_details.this, employee_management.class);
+                Intent i = new Intent(employee_details.this,employee_management.class);
                 startActivity(i);
             }
         });

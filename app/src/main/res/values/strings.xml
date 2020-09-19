@@ -18,6 +18,6 @@
     <string-array name="vehicle_category">
         <item>pickup van</item>
         <item>cargo</item>
-	<item>truck</item>
+        <item>truck</item>
     </string-array>
 </resources>
