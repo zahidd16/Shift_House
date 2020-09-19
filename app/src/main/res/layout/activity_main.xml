@@ -6,17 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/wallpaper">
+    android:background="@drawable/background">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="Shift House"
-        android:textSize="45dp"
+        android:text="User Login"
+        android:textSize="40dp"
+        android:layout_gravity="center"
         android:gravity="center_horizontal"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:textColor="#8bd8bd"/>
+        android:background="@drawable/shape_background_cute_green_rounded"
+        android:layout_marginBottom="20dp"
+        />
 
     <ImageView
         android:id="@+id/login_image"

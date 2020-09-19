@@ -14,7 +14,7 @@ public class startActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
 
         user = findViewById(R.id.UserLogin);
         admin = findViewById(R.id.AdminLogin);

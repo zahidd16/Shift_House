@@ -1,18 +1,24 @@
 package com.example.shifthouse;
 
-public class customer {
+import org.jetbrains.annotations.Contract;
+
+public class User {
 
     private String nam;
+    private String id;
     private String email;
     private String mob;
     private String ad;
     private String n;
     private String password;
-    public customer(){
 
-   }
-    public customer(String nam, String email, String mob, String ad, String n, String password) {
+    public User() {
+
+    }
+
+    public User(String nam, String id, String email, String mob, String ad, String n, String password) {
         this.nam = nam;
+        this.id = id;
         this.email = email;
         this.mob = mob;
         this.ad = ad;
@@ -26,6 +32,14 @@ public class customer {
 
     public void setNam(String nam) {
         this.nam = nam;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -68,4 +82,6 @@ public class customer {
         this.password = password;
     }
 }
+
+
 

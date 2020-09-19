@@ -14,6 +14,7 @@
         android:text="Shift House"
         android:textSize="45dp"
         android:gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:textColor="#8bd8bd"/>
@@ -25,37 +26,37 @@
         android:layout_gravity="center"
         android:src="@drawable/taxi_white"
         android:transitionName="logo_image" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#8bd8bd"
         android:textSize="60dp"
+        android:layout_marginTop="10dp"
         android:text="WELCOME"
         android:textAlignment="center"
         />
     <Button
         android:id="@+id/UserLogin"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ronded_button1"
-        android:text="User Log IN"
-        android:textStyle="bold"
-        android:textSize="25dp"
+        android:text="User Login"
+        android:textSize="20dp"
         android:textColor="#000000" />
     <Button
         android:id="@+id/AdminLogin"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ronded_button1"
-        android:text="Admin Log IN"
-        android:textStyle="bold"
-        android:textSize="25dp"
+        android:text="Admin Login"
+        android:textSize="20dp"
         android:textColor="#000000" />
 
 

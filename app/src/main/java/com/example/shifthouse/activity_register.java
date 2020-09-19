@@ -1,5 +1,8 @@
 package com.example.shifthouse;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -10,14 +13,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,7 +31,8 @@ public class activity_register extends AppCompatActivity implements View.OnClick
     Button register;
     TextView loginInTextview;
     ProgressBar progressBar;
-    DatabaseReference databaseReference;
+   // DatabaseReference databaseReference;
+  //  FirebaseUser firebaseUser;
 
     private FirebaseAuth mAuth;
 
@@ -37,7 +41,7 @@ public class activity_register extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("");
+     //   databaseReference= FirebaseDatabase.getInstance().getReference("");
 
 
         editTextEmail = findViewById(R.id.em);
@@ -97,6 +101,42 @@ public class activity_register extends AppCompatActivity implements View.OnClick
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
+                    String nam = name.getText().toString().trim();
+                    String email = editTextEmail.getText().toString().trim();
+                    String mob = mo.getText().toString().trim();
+                    String ad = add.getText().toString().trim();
+                    String n = nid.getText().toString().trim();
+                    String password = editTextPassword.getText().toString().trim();
+                    FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                    assert firebaseUser != null;
+                    String userid = firebaseUser.getUid();
+
+                    customer cus = new customer(nam,userid,email,mob,ad,n,password);
+
+
+                  DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Users");
+
+                    databaseReference.child(userid).setValue(cus);
+
+                    firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(activity_register.this, "Verification Email has been sent", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            Toast.makeText(activity_register.this, " Email not sent"+ e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+
+
+
+
                     Toast.makeText(getApplicationContext(), "You are successfully registered", Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -116,18 +156,7 @@ public class activity_register extends AppCompatActivity implements View.OnClick
 
 
     private void saveData() {
-        String nam = name.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String mob = mo.getText().toString().trim();
-        String ad = add.getText().toString().trim();
-        String n = nid.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-
-        String key = databaseReference.push().getKey();
-        customer cus = new customer(nam,email,mob,ad,n,password);
-
-        databaseReference.child(key).setValue(cus);
-    }
+            }
 
 
     @Override

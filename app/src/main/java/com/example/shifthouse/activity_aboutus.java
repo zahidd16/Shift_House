@@ -1,10 +1,10 @@
 package com.example.shifthouse;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class activity_aboutus extends AppCompatActivity implements View.OnClickListener{
 
@@ -23,7 +23,7 @@ public class activity_aboutus extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.contact_us_button:
                 finish();
-                startActivity(new Intent(this, activity_message.class));
+                startActivity(new Intent(this, UserChatOrder.class));
                 break;
         }
 
