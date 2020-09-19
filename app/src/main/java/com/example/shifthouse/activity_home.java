@@ -1,56 +1,58 @@
 package com.example.shifthouse;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import android.text.InputType;
 import android.view.*;
 
-import android.app.Activity;
 import android.content.*;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.*;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class activity_home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener{
 
     DrawerLayout drawerLayout;
     double distance;
-    TextView d,e,t,f,dcost,npt,nc,npv;
+    TextView d,e,t,f,dcost,npt,nc,npv,des;
     Button source,dest,vanP,truckP,cargoP,vanM,truckM,cargoM,confirm;
-    EditText loc,des;
+    EditText loc;
     int driverCost=0,nTruck=0,nVan=0,nCargo=0;
     String s="1";
+    String startLoc="Source to ",endLoc="destination";
     double total=0,fare=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        loc=findViewById(R.id.location);
+        des=findViewById(R.id.destination);
         Intent i = getIntent();
         s=i.getStringExtra("total distance");
         if(s==null)
             s="1";
+        startLoc=i.getStringExtra("start");
+        endLoc=i.getStringExtra("destination");
+        if(startLoc==null)
+            startLoc="Select Location ";
+        if(endLoc==null)
+            endLoc="Destination: ";
+        loc.setText(startLoc+"  ");
+        des.setText(endLoc+" ");
         distance = Double.parseDouble(s);
         d = findViewById(R.id.distances);
-        d.setText(distance+"");
+        d.setText(String.format("%.2f",distance)+" KM");
         vanP=findViewById(R.id.pva);
         vanM=findViewById(R.id.pvm);
         truckP=findViewById(R.id.pta);
@@ -70,16 +72,10 @@ public class activity_home extends AppCompatActivity implements NavigationView.O
         npt=findViewById(R.id.pt);
         nc=findViewById(R.id.co);
         confirm=findViewById(R.id.con);
-        loc=findViewById(R.id.location);
-        des=findViewById(R.id.destination);
-        des.setInputType(InputType.TYPE_NULL);
+
+
+
         loc.setInputType(InputType.TYPE_NULL);
-        des.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(activity_home.this,MapsActivity.class));
-            }
-        });
         loc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +93,12 @@ public class activity_home extends AppCompatActivity implements NavigationView.O
             public void onClick(View v) {
              Intent i=   new Intent(activity_home.this,order_activity.class);
              i.putExtra("vehicleCost",total+"");
+             i.putExtra("start",startLoc+"");
+             i.putExtra("destination",endLoc+"");
+             i.putExtra("distance",distance+"");
+             i.putExtra("nCargo",nCargo+"");
+             i.putExtra("nVan",nVan+"");
+             i.putExtra("nTruck",nTruck+"");
              startActivity(i);
             }
         });
@@ -147,8 +149,8 @@ public class activity_home extends AppCompatActivity implements NavigationView.O
         fare=(distance*150*nVan+distance*250*nTruck+distance*450*nCargo);
         total=fare+driverCost;
         dcost.setText(driverCost+"");
-        f.setText(fare+"");
-        t.setText(total+"");
+        f.setText(String.format("%.2f",fare));
+        t.setText(String.format("%.2f",total));
 
     }
 
@@ -174,7 +176,7 @@ public class activity_home extends AppCompatActivity implements NavigationView.O
                 startActivity(intent);
                 break;
             case R.id.nav_message:
-                intent = new Intent(this,activity_message.class);
+                intent = new Intent(this, UserChatOrder.class);
                 startActivity(intent);
                 break;
             case R.id.nav_signout:

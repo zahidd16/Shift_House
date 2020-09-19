@@ -29,11 +29,11 @@ public class ContactActivity extends AppCompatActivity {
                 Intent intent=new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse(s));
                 if (ContextCompat.checkSelfPermission(ContactActivity.this,
-                        android.Manifest.permission.CALL_PHONE)
+                        Manifest.permission.CALL_PHONE)
                         != PackageManager.PERMISSION_GRANTED) {
 
                     ActivityCompat.requestPermissions(ContactActivity.this,
-                            new String[]{android.Manifest.permission.CALL_PHONE},
+                            new String[]{Manifest.permission.CALL_PHONE},
                             MY_PERMISSIONS_REQUEST_CALL_PHONE);
 
                 } else {

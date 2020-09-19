@@ -11,10 +11,8 @@
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_height="500dp"
         mapbox:mapbox_cameraZoom="12"
-
-
 
 
         />
@@ -23,20 +21,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
+        android:layout_margin="10dp"
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@android:drawable/ic_search_category_default" />
 
+
+    <TextView
+        android:id="@+id/s"
+        android:layout_width="310dp"
+        android:layout_height="20dp"
+        android:textSize="15dp"
+        android:layout_marginTop="500dp"
+        android:textStyle="bold"
+        />
     <TextView
         android:id="@+id/d"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:layout_marginTop="520dp"
+        android:layout_width="310dp"
+        android:layout_height="20dp"
+        android:textSize="15dp"
+        android:layout_marginTop="525dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/distanceView"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="500dp"
         />
     <Button
         android:layout_width="120dp"
@@ -44,9 +57,12 @@
         android:layout_marginTop="550dp"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_background_cute_green_rounded"
         android:text="Confirm"
         android:id="@+id/confirm"
         android:onClick="confirmed"
+
         />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

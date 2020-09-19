@@ -5,46 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/ground"
-    tools:context=".HelpFragment">
+    android:background="@drawable/background"
+    tools:context=".HelpFragment"
+    android:padding="10dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:textStyle="bold"
         android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:background="@drawable/shape_background_cute_green_rounded"
         android:text="HELP"
 
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="60dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
+        android:layout_gravity="center"
         android:layout_marginTop="7dp"
-        android:text="Select an option: "
+        android:text="Please Select an option"
         />
 
+
     <Spinner
-        android:layout_width="165dp"
-        android:layout_height="60dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:id="@+id/spinner"
         />
     </LinearLayout>
+
     <TextView
         android:id="@+id/msgs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:background="@drawable/shape_background_cute_green_rounded"
         android:text=""
         />
-
-
 
 
 </LinearLayout>

@@ -22,26 +22,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-import java.math.*;
-import java.util.Map;
-
-import android.Manifest;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.room.util.StringUtil;
 
 import com.google.gson.JsonObject;
 import com.mapbox.api.geocoding.v5.GeocodingCriteria;
@@ -175,6 +157,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     int c = 0;
     double distance;
     String st;
+    String startLocation="";
+    String endLocation="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,6 +211,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     @Override
                     public boolean onMapClick(@NonNull LatLng point) {
+
                         if (c == 0) {
                             origin = Point.fromLngLat(point.getLongitude(), point.getLatitude());
                             source = point;
@@ -234,6 +219,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             markerOptions.position(point);
                             markerOptions.title("Source");
                             mapboxMap.addMarker(markerOptions);
+                            reverseGeocodeFunc(point,c);
+
+
                         }
                         if (c == 1) {
                             destination = Point.fromLngLat(point.getLongitude(), point.getLatitude());
@@ -242,54 +230,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             markerOptions2.position(point);
                             markerOptions2.title("destination");
                             mapboxMap.addMarker(markerOptions2);
+                            reverseGeocodeFunc(point,c);
                             getRoute(mapboxMap, origin, destination);
-                            double d = point.distanceTo(source);
+                           // double d = point.distanceTo(source);
 
 
-                        }
-                        if (c > 1) {
-                            c = 0;
-                            mapboxMap.clear();
-                            //   Toast.makeText(MainActivity.this,d+" metres", Toast.LENGTH_LONG).show();
 
                         }
-                        c++;
-                        MapboxGeocoding reverseGeocode = MapboxGeocoding.builder()
-                                .accessToken("pk.eyJ1IjoiemFoaWQxNiIsImEiOiJja2UxZ3lpaGE0NHFuMnJtcXc5djcxeGVtIn0.V5lnAKqektnfC1pARBQYUQ")
-                                .query(Point.fromLngLat(point.getLongitude(), point.getLatitude()))
-                                .geocodingTypes(GeocodingCriteria.TYPE_POI)
-                                .build();
-                        reverseGeocode.enqueueCall(new Callback<GeocodingResponse>() {
-                            @Override
-                            public void onResponse(Call<GeocodingResponse> call, Response<GeocodingResponse> response) {
 
-                                List<CarmenFeature> results = response.body().features();
-
-                                if (results.size() > 0) {
-                                    // CarmenFeature feature =results.get(0);
-                                    CarmenFeature feature;
-                                    // Log the first results Point.
-                                    Point firstResultPoint = results.get(0).center();
-                                    for (int i = 0; i < results.size(); i++) {
-                                        feature = results.get(i);
-                                        //    Toast.makeText(MainActivity.this, "" + results.get(i), Toast.LENGTH_LONG).show();
-                                        Toast.makeText(MapsActivity.this, "" + feature.placeName(), Toast.LENGTH_LONG).show();
-
-                                    }
-                                    Log.d("MyActivity", "onResponse: " + firstResultPoint.toString());
-
-                                } else {
-
-                                    // No result for your request were found.
-                                    Toast.makeText(MapsActivity.this, "Not found", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<GeocodingResponse> call, Throwable throwable) {
-                                throwable.printStackTrace();
-                            }
-                        });
 
 
                       /*  startActivityForResult(
@@ -301,8 +249,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                                 .build())
                                         .build(this), REQUEST_CODE);
                         */
+                        if (c > 1) {
+                            c = 0;
+                            recreate();
+                           // mapboxMap.clear();
+                            //   Toast.makeText(MainActivity.this,d+" metres", Toast.LENGTH_LONG).show();
 
+                        }
 
+                        c++;
                         return true;
 
 
@@ -315,7 +270,74 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+    private void reverseGeocodeFunc(LatLng point,int c)
+    {
+        MapboxGeocoding reverseGeocode = MapboxGeocoding.builder()
+                .accessToken("pk.eyJ1IjoiemFoaWQxNiIsImEiOiJja2UxZ3lpaGE0NHFuMnJtcXc5djcxeGVtIn0.V5lnAKqektnfC1pARBQYUQ")
+                .query(Point.fromLngLat(point.getLongitude(), point.getLatitude()))
+                .geocodingTypes(GeocodingCriteria.TYPE_POI)
+                .build();
+        reverseGeocode.enqueueCall(new Callback<GeocodingResponse>() {
+            @Override
+            public void onResponse(Call<GeocodingResponse> call, Response<GeocodingResponse> response) {
 
+                List<CarmenFeature> results = response.body().features();
+
+                if (results.size() > 0) {
+                    // CarmenFeature feature =results.get(0);
+                    CarmenFeature feature;
+                    // Log the first results Point.
+                    Point firstResultPoint = results.get(0).center();
+                    //   for (int i = 0; i < results.size(); i++) {
+                    //  feature = results.get(i);
+                    feature=results.get(0);
+                    if(c==0)
+                    {
+                        startLocation+=feature.placeName();
+                        startLocation=startLocation.replace(", Dhaka, Bangladesh",".");
+                        TextView tv =findViewById(R.id.s);
+                        tv.setText(startLocation);
+
+                    }
+                    if(c==1) {
+                        endLocation += feature.placeName();
+                        endLocation = endLocation.replace(", Dhaka, Bangladesh", ".");
+                        TextView tv2 = findViewById(R.id.d);
+                        tv2.setText(endLocation);
+                    }
+
+                    // endLocation = endLocation.replace(",Dhaka,Bangladesh", " ");
+                    // Toast.makeText(MapsActivity.this, endLocation, Toast.LENGTH_LONG).show();
+
+
+
+
+
+                    // startLocation=feature.placeName()+"";
+
+                    //   Toast.makeText(MainActivity.this, "" + results.get(i), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MapsActivity.this, "" + feature.placeName(), Toast.LENGTH_LONG).show();
+
+                    //  }
+                    Log.d("MyActivity", "onResponse: " + firstResultPoint.toString());
+
+                } else {
+
+                    // No result for your request were found.
+                    Toast.makeText(MapsActivity.this, "Not found", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GeocodingResponse> call, Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        });
+
+
+
+
+    }
 
     private void initLayers(@NonNull Style loadedMapStyle) {
         LineLayer routeLayer = new LineLayer(ROUTE_LAYER_ID, ROUTE_SOURCE_ID);
@@ -378,10 +400,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         final DirectionsRoute currentRoute = response.body().routes().get(0);
         // Toast.makeText(MainActivity.this,currentRoute.distance()+" metres ",Toast.LENGTH_SHORT).show();
         distance = currentRoute.distance() / 1000;
-        st = String.format("Distance is %.2f K.M", distance);
-        TextView tv = findViewById(R.id.d);
+        st = String.format("%.2f K.M", distance);
+        TextView dv=findViewById(R.id.distanceView);
+        dv.setText(st);
+        //String f=startLocation+endLocation+st;
+        //TextView tv=findViewById(R.id.s);
+       // TextView tv2 = findViewById(R.id.d);
+       // startLocation=startLocation.replace("Bangladesh",".");
+      //  endLocation=endLocation.replace("Bangladesh",".");
 
-        tv.setText(st);
+       // tv.setText(startLocation);
+       // tv2.setText(endLocation);
 
 
         // tv.setText(distance+" K.M");
@@ -417,9 +446,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void confirmed(View view){
 
-        Intent i =new Intent(MapsActivity.this,activity_home.class);
-        i.putExtra("total distance",distance+"");
-        startActivity(i);
+            Intent i =new Intent(MapsActivity.this,activity_home.class);
+            i.putExtra("total distance",distance+"");
+            i.putExtra("start","From: "+startLocation+"");
+            i.putExtra("destination","To: "+endLocation+"");
+            startActivity(i);
 
     }
 
@@ -615,8 +646,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapView.onSaveInstanceState(outState);
     }
 }
-
-
 
 
 

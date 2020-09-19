@@ -6,16 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".activity_profile"
     android:orientation="vertical"
-    android:background="@drawable/ground">
+    android:background="@drawable/background"
+    android:padding="10dp"
+    >
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:text="Profile"
-        android:textSize="60dp"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="40dp"
         android:textStyle="bold"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_input_light_blue"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Name: "
         android:textStyle="bold"
-        android:textSize="40dp"
+        android:textSize="25dp"
         android:layout_marginBottom="10dp"
         />
         <TextView
@@ -35,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:text=""
             android:layout_marginBottom="10dp"
             />
@@ -52,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Email: "
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp"
             />
         <TextView
@@ -60,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:text=""
             android:layout_marginBottom="10dp"
             />
@@ -75,7 +81,7 @@
             android:layout_height="wrap_content"
             android:text="Mobile : "
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp"
             />
         <TextView
@@ -83,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:text=""
             android:layout_marginBottom="10dp"
             />
@@ -98,7 +104,7 @@
             android:layout_height="wrap_content"
             android:text="Address: "
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp"
             />
         <TextView
@@ -106,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:text=""
             android:layout_marginBottom="10dp"
             />
@@ -121,7 +127,7 @@
             android:layout_height="wrap_content"
             android:text="NID: "
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp"
             />
         <TextView
@@ -129,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:text=""
             android:layout_marginBottom="10dp"
             />

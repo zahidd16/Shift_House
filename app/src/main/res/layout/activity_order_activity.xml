@@ -6,19 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".order_activity"
-    android:background="@drawable/ground">
+    android:background="@drawable/background">
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:text="Order"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_background_cute_green_rounded"
         android:layout_centerHorizontal="true"
-        android:textSize="60dp"
+        android:textSize="40dp"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="200dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +39,7 @@
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/paint"
+            android:src="@drawable/paintingicon"
             ></ImageView>
         <Button
             android:layout_width="20dp"
@@ -66,11 +73,12 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -86,6 +94,7 @@
             android:layout_marginLeft="20dp"
             android:src="@drawable/fan"
             ></ImageView>
+
         <Button
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -122,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -135,7 +144,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="35dp"
-            android:src="@drawable/wrench"
+            android:src="@drawable/wrenchhicon"
             android:layout_marginLeft="5dp"
             ></ImageView>
         <Button
@@ -172,7 +181,7 @@
     </LinearLayout>
 
     <EditText
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="252dp"
         android:id="@+id/date"
         android:textSize="20dp"
         android:layout_width="180dp"
@@ -187,26 +196,27 @@
         android:textSize="20dp"
         android:text="Select Date"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="260dp"
         android:id="@+id/dateview"/>
 
 
     <Button
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="450dp"
         android:id="@+id/finish"
         android:layout_marginEnd="48dp"
         android:elevation="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@color/colorWhite"
         android:text="Finish"
-        android:textColor="#fff" />
+        android:textSize="20dp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="310dp"
         android:layout_marginLeft="20dp"
         android:textSize="20dp"
         android:text="Service cost: "
@@ -215,7 +225,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="345dp"
         android:layout_marginLeft="20dp"
         android:textSize="20dp"
         android:text="Vehicle cost: "
@@ -224,7 +234,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="380dp"
         android:layout_marginLeft="20dp"
         android:textSize="20dp"
         android:text="Total cost: "
