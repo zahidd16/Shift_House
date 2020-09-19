@@ -1,7 +1,5 @@
 package com.example.shifthouse;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,9 +9,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+
 public class admin_home extends AppCompatActivity {
     EditText  adminMail, adminPassword;
     Button adminLogin;
+    FirebaseAuth aAuth;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,7 @@ public class admin_home extends AppCompatActivity {
         adminMail =  findViewById(R.id.editTextAdminUser);
         adminPassword =  findViewById(R.id.editTextAdminPassword);
         adminLogin = findViewById(R.id.buttonAdminLogin);
+        aAuth=FirebaseAuth.getInstance();
 
         adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,19 +44,35 @@ public class admin_home extends AppCompatActivity {
                     adminPassword.setError("password is required");
                     return;
                 }
-                if(adnPassword.length()<5 && adnPassword.length()>5){
-                    adminPassword.setError("password must not be greater or less than 5 characters");
-                    return;
-                }
-                if(adnEmail.equals("admin@gmail.com") && adnPassword.equals("admin")){
-                    Intent adminLoginIntent = new Intent(admin_home.this, control_panel.class);
-                    startActivity(adminLoginIntent);
-                    //progressBar.setVisibility(view.VISIBLE);
-                    Toast toast = Toast.makeText(getApplicationContext(), "login successfully", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                login(adnEmail,adnPassword);
+
             }
         });
+    }
+    public void login(String email,String password)
+    {
+
+        aAuth.signInWithEmailAndPassword(email , password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals("MZKsLugyHRNkfQBOT7UllSfbhOc2")) {
+                    Intent adminLoginIntent = new Intent(admin_home.this, control_panel.class);
+                    startActivity(adminLoginIntent);
+                    Toast toast = Toast.makeText(getApplicationContext(), "login successfully", Toast.LENGTH_SHORT);
+                    toast.show();
+
+                }
+                else{
+                    Toast.makeText(admin_home.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+
+
+
     }
 
 }
