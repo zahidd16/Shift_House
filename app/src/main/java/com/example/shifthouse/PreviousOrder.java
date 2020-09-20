@@ -88,20 +88,20 @@ import java.util.List;
 
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            orders.clear();
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-                            Order order = snapshot.getValue(Order.class);
-                            if(order.getID().equals(auth.getCurrentUser().getUid()))
-                            orders.add(order);
+                                    Order order = snapshot.getValue(Order.class);
+                                    if(order.getID().equals(auth.getCurrentUser().getUid()))
+                                    orders.add(order);
 
 
-                    }
+                            }
 
-                    orderAdapter = new OrderAdapter( getContext(), orders);
-                    recyclerView.setAdapter(orderAdapter);
-                }
+                            orderAdapter = new OrderAdapter( getContext(), orders);
+                            recyclerView.setAdapter(orderAdapter);
+                        }
 
 
                 @Override

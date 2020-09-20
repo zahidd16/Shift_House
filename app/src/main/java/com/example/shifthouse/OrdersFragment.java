@@ -68,7 +68,7 @@ public class OrdersFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                orders.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     Order order = snapshot.getValue(Order.class);
