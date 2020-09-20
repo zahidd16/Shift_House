@@ -20,7 +20,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
 private Context Context;
 private List<Order> orders;
-private boolean ischat;
 
 String LastMessage;
 

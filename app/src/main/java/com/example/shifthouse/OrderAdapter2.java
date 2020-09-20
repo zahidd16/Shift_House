@@ -21,7 +21,6 @@ public class OrderAdapter2 extends RecyclerView.Adapter<OrderAdapter2.ViewHolder
 
     private Context Context;
     private List<Order> orders;
-    private boolean ischat;
 
     String LastMessage;
 

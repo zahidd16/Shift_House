@@ -529,7 +529,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         }
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+        /*if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
 // Retrieve the information from the selected location's CarmenFeature
             CarmenFeature carmenFeature = PlacePicker.getPlace(data);
 
@@ -540,7 +540,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Toast.makeText(MapsActivity.this, String.format(address
                         , carmenFeature.toJson()), Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
     }
 
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
